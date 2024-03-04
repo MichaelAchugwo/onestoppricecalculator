@@ -36,6 +36,7 @@
                     <div class="card-header bg-dark text-white p-3">To use this calculator follow the steps below</div>
                     <div class="card-text">
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Select the type of Print you want</li>
                             <li class="list-group-item">Check measurements of the work you want to check it's price</li>
                             <li class="list-group-item">Depending on the units, scroll to either the Inches or Feet section</li>
                             <li class="list-group-item">Input the correct measurements into the Width and Height boxes</li>
@@ -46,6 +47,17 @@
                 </div>
             </div>
             <div class="container-fluid w-100 p-0">
+                <div class="row justify-content-center pb-3">
+                    <select name="materials" id="materialSelect" class="w-50">
+                        <option value="Flex">Flex</option>
+                        <option value="SAV">SAV</option>
+                        <option value="Solite">Solite</option>
+                        <option value="Reflective Flex">Reflective Flex</option>
+                        <option value="Reflective SAV">Reflective SAV</option>
+                        <option value="Foam Board">Foam Board</option>
+                        <option value="Window Grafix">Window Grafix</option>
+                    </select>
+                </div>
                 <div class="card-group mx-auto mb-5" style="max-width:97%">
                     <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5">
                         <div class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold">INCHES</div>
