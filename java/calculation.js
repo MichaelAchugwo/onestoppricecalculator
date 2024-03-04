@@ -9,7 +9,7 @@ function showPage() {
   document.getElementById("myWeb").style.display = "block";
 }
 
-var pricePerSqrFeet = 120;
+var pricePerSqrFeet = 160;
 function calculatePriceIn(){
   var inwidth = document.getElementById("job-widthin").value;
   var inheight = document.getElementById("job-heightin").value;
