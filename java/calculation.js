@@ -1,4 +1,5 @@
 var showWeb;
+var mainCalculator = document.getElementById("mainCalculator");
 
 function webLoader() {
   showWeb = setTimeout(showPage, 1500);
