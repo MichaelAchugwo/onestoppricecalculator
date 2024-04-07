@@ -10,7 +10,7 @@ function showPage() {
   document.getElementById("myWeb").style.display = "block";
 }
 
-var pricePerSqrFeet = 170;
+var pricePerSqrFeet = 190;
 
 var select = document.getElementById("materialSelect");
 
@@ -25,17 +25,17 @@ function updateVariable() {
   if (selectedOption === 0) {
     return newPricePerSqrFeet;
   } else if (selectedOption === 1) {
-    newPricePerSqrFeet = 180;
+    newPricePerSqrFeet = 210;
   } else if (selectedOption === 2) {
-    newPricePerSqrFeet = 250;
+    newPricePerSqrFeet = 350;
   } else if (selectedOption === 3) {
-    newPricePerSqrFeet = 280;
+    newPricePerSqrFeet = 350;
   } else if (selectedOption === 4) {
-    newPricePerSqrFeet = 290;
+    newPricePerSqrFeet = 350;
   } else if (selectedOption === 5) {
-    newPricePerSqrFeet = 300;
+    newPricePerSqrFeet = 350;
   } else if (selectedOption === 6) {
-    newPricePerSqrFeet = 250;
+    newPricePerSqrFeet = 350;
   }
   pricePerSqrFeet = newPricePerSqrFeet;
   document.getElementById("price").innerHTML = pricePerSqrFeet;
