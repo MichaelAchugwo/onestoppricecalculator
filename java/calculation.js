@@ -10,7 +10,7 @@ function showPage() {
   document.getElementById("myWeb").style.display = "block";
 }
 
-var pricePerSqrFeet = 190;
+var pricePerSqrFeet = 180;
 
 var select = document.getElementById("materialSelect");
 
@@ -25,7 +25,7 @@ function updateVariable() {
   if (selectedOption === 0) {
     return newPricePerSqrFeet;
   } else if (selectedOption === 1) {
-    newPricePerSqrFeet = 210;
+    newPricePerSqrFeet = 200;
   } else if (selectedOption === 2) {
     newPricePerSqrFeet = 350;
   } else if (selectedOption === 3) {
