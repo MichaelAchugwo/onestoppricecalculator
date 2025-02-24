@@ -1,144 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta property="og:title" content="Onestop Price Calculator">
-    <meta property="og:description" content="This is the official price calculator for Onestop Print Shop">
-    <meta property="og:image" content="images/thumbnail.png">
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="630"/>
-    <meta property="og:url" content="https://onestoppricecalculator.netlify.app/">
-    <meta property="og:site_name" content="Onestop Print Shop">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta property="og:title" content="Onestop Price Calculator" />
+    <meta
+      property="og:description"
+      content="This is the official price calculator for Onestop Print Shop"
+    />
+    <meta property="og:image" content="images/thumbnail.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:url"
+      content="https://onestoppricecalculator.netlify.app/"
+    />
+    <meta property="og:site_name" content="Onestop Print Shop" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@slingthebadone" />
     <meta name="twitter:title" content="Onestop Price Calculator" />
-    <meta name="twitter:description" content="This is the official price calculator for Onestop Print Shop" />
+    <meta
+      name="twitter:description"
+      content="This is the official price calculator for Onestop Print Shop"
+    />
     <meta name="twitter:image" content="images/twitter-thumbnail.png" />
-    <link rel="icon" href="images/onestopicon.png" type="image/x-icon">
+    <link rel="icon" href="images/onestopicon.png" type="image/x-icon" />
     <title>Onestop Price Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body onload="webLoader()">
-    <div id="loader"></div>
-    <div id="myWeb" class="animateWeb" style="display:none">
-        <div class="container-fluid p-0" style="overflow: hidden;">
-            <div class="header w-100">
-                <a class="header-logo" href=""><span class="onestop">Onestop</span> Print Shop</a>
-            </header>
-            </div>
-            <div class="row my-4">
-                <div class="card w-75 p-0 mx-auto">
-                    <div class="card-header bg-dark text-white p-3">To use this calculator follow the steps below</div>
-                    <div class="card-text">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Select the type of MEDIA you want to print</li>
-                            <li class="list-group-item">Check measurements of the work you want to check it's price</li>
-                            <li class="list-group-item">Depending on the units, scroll to either the Inches or Feet section</li>
-                            <li class="list-group-item">Input the correct measurements into the Width and Height boxes</li>
-                            <li class="list-group-item">Click the Calculate button and scroll down to see your price</li>
-                            <li class="list-group-item">Click the Reset button to Reset the sizes put</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid w-100 p-0">
-                <div class="row justify-content-center text-center pb-3">
-<a class="w-25 bg-dark text-white p-2 fw-bold text-decoration-none">MEDIA</a>
-                    <select name="materials" id="materialSelect" class="w-50">
-                        <option value="Flex">Flex</option>
-                        <option value="SAV">SAV</option>
-                        <option value="Solite">Solite</option>
-                        <option value="Reflective Flex">Reflective Flex</option>
-                        <option value="Reflective SAV">Reflective SAV</option>
-                        <option value="Foam Board">Foam Board</option>
-                        <option value="Window Grafix">Window Grafix</option>
-                    </select>
-                </div>
-                <div class="card-group mx-auto mb-5" style="max-width:97%" id="mainCalculator">
-                    <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5">
-                        <div class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold">INCHES</div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="job-widthin" name="floating-in-width" placeholder="Enter Width">
-                                    <label for="floating-in-width" class="form-label">Width:</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="job-heightin" name="floating-in-height" placeholder="Enter Height">
-                                    <label for="floating-in-height" class="form-label">Height:</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="innumber" value="1" name="floating-in-quantity" placeholder="Enter Quantity">
-                                    <label for="floating-in-quantity" class="form-label">Quantity:</label>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="price" class="form-label col-9 fs-5">Price Per Square Feet:</label>
-                                    <h3 class="text-muted col-3" id="price"></h3>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="button" class="btn btn-primary" id="calculate" onclick="calculatePriceIn()">Calculate</button>
-                                    <button type="button" class="btn btn-danger" id="reset" onclick = resetUnitsIn()>Reset</button>
-                                </div>
-                            </form>
-                            <h2>Your price is N<integer id="calculated-price-in"></integer></h2>
-                        </div>
-                    </div>
-                    <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5">
-                        <div class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold">FEET</div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="job-widthft" name="floating-ft-width" placeholder="Enter Width">
-                                    <label for="floating-ft-width" class="form-label">Width:</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="job-heightft" name="floating-ft-height" placeholder="Enter Height">
-                                    <label for="floating-ft-height" class="form-label">Height:</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="ftnumber" value="1" name="floating-ft-quantity" placeholder="Enter Quantity">
-                                    <label for="floating-ft-quantity" class="form-label">Quantity:</label>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="price" class="form-label col-9 fs-5">Price Per Square Feet:</label>
-                                    <h3 class="text-muted col-3" id="price2"></h3>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="button" class="btn btn-primary" id="calculate" onclick="calculatePriceFt()">Calculate</button>
-                                    <button type="button" class="btn btn-danger" id="reset" onclick = resetUnitsFt()>Reset</button>
-                                </div>
-                            </form>
-                            <h2>Your price is N<integer id="calculated-price-ft"></integer></h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div>
+      <div class="container-fluid p-0" style="overflow: hidden">
+        <div class="header w-100">
+          <a class="header-logo" href=""
+            ><span class="onestop">Onestop</span> Print Shop</a
+          >
         </div>
-        <footer>
-            <div class="container-fluid">
-                <div class="row mt-5 py-5 bg-dark text-white">
-                    <div class="col-lg-3 ms-0 ms-lg-4 mb-2">
-                        <h5 class="text-center text-lg-start pb-2 px-0 in-touch">Get in Touch with us</h5>
-                    </div>
-                    <div class="col-lg-8 bg-dark text-center text-lg-start">
-                        <a class="list-group-item fs-6 text-decoration-none p-2 pt-0" href="mailto:onestopbranding@gmail.com">onestopbrandingnigeria@gmail.com</a>
-                        <a class="list-group-item fs-6  text-decoration-none p-2" href="tel:+2348034153844">+2348034153844</a>
-                        <a class="list-group-item fs-6 text-decoration-none p-2" href="tel:+2349082857888">+2349082857888</a>
-                        <a class="list-group-item fs-6 text-decoration-none p-2" href="tel:+2349056260151">+2349056260151</a>
-                        <a class="list-group-item fs-6 text-decoration-none p-2" href="https://maps.app.goo.gl/XuPKYMUEDNrpmiqM6" target="_blank" class="footer-elements">TONJOR ELECTRONICS COMPLEX <br> 43, Shogbanmu Street, New Garage Bus Stop Fogo, Bariga Lagos.</a>
-                        <small class="text-muted">&copy Copyright Onestop Print Shop 2024</small>
-                    </div>
-                </div>
+        <div class="row my-4">
+          <div class="card w-75 p-0 mx-auto">
+            <div class="card-header bg-dark text-white p-3">
+              To use this calculator follow the steps below
             </div>
-        </footer>
+            <div class="card-text">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Select the type of MEDIA you want to print
+                </li>
+                <li class="list-group-item">
+                  Check measurements of the work you want to check it's price
+                </li>
+                <li class="list-group-item">
+                  Depending on the units, scroll to either the Inches or Feet
+                  section
+                </li>
+                <li class="list-group-item">
+                  Input the correct measurements into the Width and Height boxes
+                </li>
+                <li class="list-group-item">
+                  Click the Calculate button and scroll down to see your price
+                </li>
+                <li class="list-group-item">
+                  Click the Reset button to Reset the sizes put
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center text-center mb-4 px-5 fw-bold fs-4">
+          <div class="col-6">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="printType"
+              id="largeFormat"
+              value="Large Format"
+              style="accent-color: rgb(224, 140, 13);"
+              checked
+            />
+            <label class="form-check-label" for="largeFormat"
+              >Large Format</label
+            >
+          </div>
+          <div class="col-6">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="printType"
+              id="paperPrint"
+              value="Paper Print"
+              style="accent-color: rgb(224, 140, 13);"
+            />
+            <label class="form-check-label" for="paperPrint">Paper Print</label>
+          </div>
+        </div>
+        <div class="container-fluid w-100 p-0" id="largeFormatBox">
+          <div class="row justify-content-center text-center pb-3">
+            <a class="w-25 bg-dark text-white p-2 fw-bold text-decoration-none"
+              >MEDIA</a
+            >
+            <select name="materials" id="materialSelect" class="w-50">
+              <option value="Flex">Flex</option>
+              <option value="SAV">SAV</option>
+              <option value="Solite">Solite</option>
+              <option value="Reflective Flex">Clear SAV</option>
+              <option value="Reflective SAV">Reflective SAV</option>
+              <option value="Foam Board">Foam Board</option>
+              <option value="Window Grafix">Window Grafix</option>
+            </select>
+          </div>
+          <div
+            class="card-group mx-auto mb-5"
+            style="max-width: 97%"
+            id="mainCalculator"
+          >
+            <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5">
+              <div
+                class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold"
+              >
+                INCHES
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="job-widthin"
+                      name="floating-in-width"
+                      placeholder="Enter Width"
+                      step="12"
+                    />
+                    <label for="floating-in-width" class="form-label"
+                      >Width:</label
+                    >
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="job-heightin"
+                      name="floating-in-height"
+                      placeholder="Enter Height"
+                      step="12"
+                    />
+                    <label for="floating-in-height" class="form-label"
+                      >Height:</label
+                    >
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="innumber"
+                      value="1"
+                      name="floating-in-quantity"
+                      placeholder="Enter Quantity"
+                    />
+                    <label for="floating-in-quantity" class="form-label"
+                      >Quantity:</label
+                    >
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="price" class="form-label col-9 fs-5"
+                      >Price Per Square Feet:</label
+                    >
+                    <h3 class="text-muted col-3" id="price"></h3>
+                  </div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="calculate"
+                      onclick="calculatePriceIn()"
+                    >
+                      Calculate
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      id="reset"
+                      onclick="resetUnitsIn()"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </form>
+                <h2>
+                  Your price is N<integer id="calculated-price-in"></integer>
+                </h2>
+              </div>
+            </div>
+            <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5">
+              <div
+                class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold"
+              >
+                FEET
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="job-widthft"
+                      name="floating-ft-width"
+                      placeholder="Enter Width"
+                    />
+                    <label for="floating-ft-width" class="form-label"
+                      >Width:</label
+                    >
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="job-heightft"
+                      name="floating-ft-height"
+                      placeholder="Enter Height"
+                    />
+                    <label for="floating-ft-height" class="form-label"
+                      >Height:</label
+                    >
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="ftnumber"
+                      value="1"
+                      name="floating-ft-quantity"
+                      placeholder="Enter Quantity"
+                    />
+                    <label for="floating-ft-quantity" class="form-label"
+                      >Quantity:</label
+                    >
+                  </div>
+                  <div class="row mb-3">
+                    <label for="price" class="form-label col-9 fs-5"
+                      >Price Per Square Feet:</label
+                    >
+                    <h3 class="text-muted col-3" id="price2"></h3>
+                  </div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="calculate"
+                      onclick="calculatePriceFt()"
+                    >
+                      Calculate
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      id="reset"
+                      onclick="resetUnitsFt()"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </form>
+                <h2>
+                  Your price is N<integer id="calculated-price-ft"></integer>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid w-100 p-0" id="paperPrintBox">
+          <div class="row justify-content-center text-center pb-3">
+            <a class="w-25 bg-dark text-white p-2 fw-bold text-decoration-none"
+              >MEDIA</a
+            >
+            <select name="materials" id="paperSelect" class="w-50">
+              <option value="Card">Card</option>
+              <option value="Paper">Paper</option>
+              <option value="Art Paper">Art Paper</option>
+              <option value="Conqueror">Conqueror</option>
+              <option value="Stickers">Stickers</option>
+            </select>
+          </div>
+          <div
+            class="card-group mx-auto mb-5"
+            style="max-width: 97%"
+            id="mainCalculator"
+          >
+            <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5">
+              <div
+                class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold"
+              >
+                A4
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="a4number"
+                      value="1"
+                      name="a4number"
+                      placeholder="Enter Quantity"
+                    />
+                    <label for="floating-in-quantity" class="form-label"
+                      >Quantity:</label
+                    >
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="a4Price" class="form-label col-9 fs-5"
+                      >Price:</label
+                    >
+                    <h3 class="text-muted col-3" id="a4price"></h3>
+                  </div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onclick="calculatePriceA4()"
+                    >
+                      Calculate
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      onclick="resetUnitsA4()"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </form>
+                <h2>
+                  Your price is N<integer id="calculated-price-a4"></integer>
+                </h2>
+              </div>
+            </div>
+            <div class="card p-0 my-4 m-auto m-md-2 col-10 col-md-5" id="a3Box">
+              <div
+                class="card-header bg-dark text-white p-2 text-center fs-3 fw-bold"
+              >
+                A3
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="a3number"
+                      value="1"
+                      name="a3number"
+                      placeholder="Enter Quantity"
+                    />
+                    <label for="a3number" class="form-label"
+                      >Quantity:</label
+                    >
+                  </div>
+                  <div class="row mb-3">
+                    <label for="a3price" class="form-label col-9 fs-5"
+                      >Price:</label
+                    >
+                    <h3 class="text-muted col-3" id="a3price"></h3>
+                  </div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="calculate"
+                      onclick="calculatePriceA3()"
+                    >
+                      Calculate
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      id="reset"
+                      onclick="resetUnitsA3()"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </form>
+                <h2>
+                  Your price is N<integer id="calculated-price-a3"></integer>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="container-fluid">
+          <div class="row mt-5 py-5 bg-dark text-white">
+            <div class="col-lg-3 ms-0 ms-lg-4 mb-2">
+              <h5 class="text-center text-lg-start pb-2 px-0 in-touch">
+                Get in Touch with us
+              </h5>
+            </div>
+            <div class="col-lg-8 bg-dark text-center text-lg-start">
+              <a
+                class="list-group-item fs-6 text-decoration-none p-2 pt-0"
+                href="mailto:onestopbranding@gmail.com"
+                >onestopbrandingnigeria@gmail.com</a
+              >
+              <a
+                class="list-group-item fs-6 text-decoration-none p-2"
+                href="tel:+2348034153844"
+                >+2348034153844</a
+              >
+              <a
+                class="list-group-item fs-6 text-decoration-none p-2"
+                href="tel:+2349082857888"
+                >+2349082857888</a
+              >
+              <a
+                class="list-group-item fs-6 text-decoration-none p-2"
+                href="tel:+2349056260151"
+                >+2349056260151</a
+              >
+              <a
+                class="list-group-item fs-6 text-decoration-none p-2"
+                href="https://maps.app.goo.gl/XuPKYMUEDNrpmiqM6"
+                target="_blank"
+                class="footer-elements"
+                >TONJOR ELECTRONICS COMPLEX <br />
+                43, Shogbanmu Street, New Garage Bus Stop Fogo, Bariga Lagos.</a
+              >
+              <small class="text-muted"
+                >&copy Copyright Onestop Print Shop 2024</small
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
     <script src="java/calculation.js"></script>
     <script src="java/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
