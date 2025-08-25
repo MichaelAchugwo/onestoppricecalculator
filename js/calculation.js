@@ -14,7 +14,7 @@ function toggleBoxes() {
   }
 }
 
-var newPricePerSqrFeet = 200;
+var newPricePerSqrFeet = 190;
 var a4Price = 200;
 var a3Price = 400;
 
@@ -26,10 +26,10 @@ function updateVariable() {
   const selectedPaper = selectPaper.selectedIndex;
   switch (selectedOption) {
     case 0:
-      newPricePerSqrFeet = 200;
+      newPricePerSqrFeet = 190;
       break;
     case 1:
-      newPricePerSqrFeet = 250;
+      newPricePerSqrFeet = 230;
       break;
     case 2:
       newPricePerSqrFeet = 350;
